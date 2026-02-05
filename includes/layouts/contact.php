@@ -1,14 +1,10 @@
 <?php
-session_start();
-
-require_once __DIR__ . '/../private/dbcon.php';
-require_once __DIR__ . '/includes/prefs.php';
-require_once __DIR__ . '/includes/lib/cms_log.php';
-require_once __DIR__ . '/includes/lib/forms.php';
-require_once __DIR__ . '/wccms/includes/email.php';
+require_once __DIR__ . '/../lib/cms_log.php';
+require_once __DIR__ . '/../lib/forms.php';
+require_once __DIR__ . '/../../wccms/includes/email.php';
 
 $baseURL = cms_base_url();
-$pageTitle = 'Contact ITFix';
+$contactSlug = $pageData['slug'] ?? 'contact-itfix';
 
 $formSlug = 'contact';
 $form = cms_load_form_by_slug($formSlug);
@@ -353,17 +349,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'type' => 'success',
       'message' => $form['success_message'] ?? 'Thanks! Your message has been received.',
     ];
-    header('Location: ' . $baseURL . '/contact.php?sent=1');
+    header('Location: ' . $baseURL . '/' . $contactSlug . '?sent=1');
     exit;
   } else {
     $_SESSION['contact_form_values'] = $fieldValues;
   }
 }
 
-include __DIR__ . '/includes/header-code.php';
-include __DIR__ . '/includes/header.php';
-include __DIR__ . '/includes/menu.php';
-include __DIR__ . '/contact_form.php';
-include __DIR__ . '/includes/footer.php';
-include __DIR__ . '/includes/footer-debug.php';
-include __DIR__ . '/includes/footer-code.php';
+include __DIR__ . '/../partials/contact_form.php';

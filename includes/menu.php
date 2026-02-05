@@ -18,7 +18,7 @@
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="<?php echo $baseURL; ?>/why">Why ITFix</a></li>
-        <li class="nav-item"><a class="nav-link" href="<?php echo $baseURL; ?>/contact.php">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?php echo $baseURL; ?>/contact-itfix">Contact</a></li>
       </ul>
     </div>
   </div>

@@ -1,3 +1,8 @@
+<?php if (!empty($IS_LOCAL)): ?>
+  <div class="dev-banner">
+    Development Site
+  </div>
+<?php endif; ?>
 <header class="site-header border-bottom">
   <div class="container py-3 py-lg-4">
     <div class="row align-items-center g-3">
@@ -17,7 +22,7 @@
           </a>
           <a class="contact-item" href="mailto:<?php echo cms_h(cms_pref('prefEmail', '')); ?>">
             <i class="fa-solid fa-envelope"></i>
-            <span><?php echo cms_h(cms_pref('prefEmail', 'scott@itfix.com')); ?></span>
+            <span><?php echo cms_h(cms_pref('prefEmail', 'hardcoded')); ?></span>
           </a>
         </div>
       </div>

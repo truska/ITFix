@@ -12,7 +12,7 @@
         <h1 class="display-5">Technology that stays out of your way and powers your business.</h1>
         <p class="lead">We keep your systems secure, your people productive, and your budget predictable. From daily support to long-term strategy, ITFix becomes your on-call technology partner.</p>
         <div class="d-flex flex-wrap gap-3">
-          <a href="<?php echo $baseURL; ?>/contact.php" class="btn btn-primary btn-lg">Talk to an Expert</a>
+          <a href="<?php echo $baseURL; ?>/contact-itfix" class="btn btn-primary btn-lg">Talk to an Expert</a>
           <a href="#services" class="btn btn-outline-light btn-lg">Explore Services</a>
         </div>
       </div>

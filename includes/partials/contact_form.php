@@ -1,3 +1,6 @@
+<?php
+$contactSlug = $contactSlug ?? 'contact-itfix';
+?>
 <main class="contact-page">
   <section class="contact-hero">
     <div class="container">
@@ -41,7 +44,7 @@
               </div>
             <?php endif; ?>
 
-            <form method="post" action="<?php echo cms_h($baseURL . '/contact.php'); ?>" novalidate>
+            <form method="post" action="<?php echo cms_h($baseURL . '/' . $contactSlug); ?>" novalidate>
               <input type="hidden" name="csrf_token" value="<?php echo cms_h($_SESSION['contact_form_token']); ?>">
 
               <div class="hp-field">
