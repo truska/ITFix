@@ -16,6 +16,7 @@ foreach ($pageContentItems as $contentItem) {
     'id' => $contentItem['id'] ?? null,
     'name' => $contentItem['name'] ?? $contentItem['title'] ?? $contentItem['heading'] ?? '',
     'layout' => $contentItem['layout'] ?? $contentItem['layout_url'] ?? '',
+    'layout_url' => $contentItem['layout_url'] ?? '',
     'layout_name' => $contentItem['layout_name'] ?? '',
     'sort' => $contentItem['sort'] ?? null,
   ];
@@ -40,9 +41,20 @@ foreach ($pageContentItems as $contentItem) {
     $contentHeading = $contentItem['heading'] ?? '';
     $contentShowHeading = $contentItem['showheading'] ?? 'Yes';
     $contentSubheading = $contentItem['subheading'] ?? '';
-    $contentText = cms_apply_shortcodes($contentItem['text'] ?? '');
+    $contentSubheading1 = $contentItem['subheading1'] ?? $contentItem['subheading_1'] ?? '';
+    $contentSubheading2 = $contentItem['subheading2'] ?? $contentItem['subheading_2'] ?? '';
+    $contentSubheading3 = $contentItem['subheading3'] ?? $contentItem['subheading_3'] ?? '';
+    $contentText1 = cms_apply_shortcodes($contentItem['text1'] ?? $contentItem['text'] ?? '');
+    $contentText = $contentText1; // Backward-compatible alias for existing layouts.
     $contentText2 = cms_apply_shortcodes($contentItem['text2'] ?? '');
     $contentText3 = cms_apply_shortcodes($contentItem['text3'] ?? '');
+    $contentSourceFormId = isset($contentItem['source_form_id']) && is_numeric($contentItem['source_form_id'])
+      ? (int) $contentItem['source_form_id']
+      : null;
+    $contentSourceFormName = trim((string) ($contentItem['source_form_name'] ?? ''));
+    if ($contentSourceFormName === '') {
+      $contentSourceFormName = null;
+    }
     $contentImage = $contentItem['image'] ?? '';
     $contentPaddingTop = $contentItem['padding-top'] ?? null;
     $contentPaddingBottom = $contentItem['padding-bottom'] ?? null;
@@ -86,7 +98,7 @@ foreach ($pageContentItems as $contentItem) {
   // Fallback renderer if no layout template exists yet.
   $heading = $contentItem['heading'] ?? $contentItem['title'] ?? '';
   $subheading = $contentItem['subheading'] ?? '';
-  $body = cms_apply_shortcodes($contentItem['text'] ?? $contentItem['content'] ?? '');
+  $body = cms_apply_shortcodes($contentItem['text1'] ?? $contentItem['text'] ?? $contentItem['content'] ?? '');
   ?>
   <section class="content-block">
     <div class="container">

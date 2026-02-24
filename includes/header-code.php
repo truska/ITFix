@@ -34,6 +34,13 @@ $pageTitle = $pageTitle ?? 'ITFix - Managed IT Services';
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" integrity="sha512-ypPIy8wSRHn2yT7nL2R4AR6j2B2cPNCEQkI6Q5r92eUhc6Oe3wM3wN1s0h+J5S3E6fM6D6KhGxZxJ5mFq4Y8Kg==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="<?php echo $baseURL; ?>/css/site.css">
+  <?php
+    // Optional per-site head assets/scripts (e.g. MagicZoom, MagicScroll, one-off integrations).
+    $customHeadPath = __DIR__ . '/custom-head.php';
+    if (file_exists($customHeadPath)) {
+      include $customHeadPath;
+    }
+  ?>
   <script src="https://kit.fontawesome.com/3e4371248d.js" crossorigin="anonymous"></script>
 </head>
 <body>

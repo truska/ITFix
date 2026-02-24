@@ -3,6 +3,7 @@
  * Full-width centered text block.
  */
 ?>
+<!-- layout=fullwidthtext.php layout_url=<?php echo cms_h((string) ($contentItem['layout_url'] ?? '')); ?> content_id=<?php echo cms_h((string) ($contentItem['id'] ?? '')); ?> -->
 
 <section class="services-section cms-content-block <?php echo cms_h($contentPaddingClass); ?>">
   <div class="container">

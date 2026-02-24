@@ -11,6 +11,7 @@ $cardBody = $contentText2 !== '' ? $contentText2 : 'Our local technicians respon
 $cardListRaw = $contentText3 !== '' ? strip_tags($contentText3) : "Security-first support\nPerformance monitoring\nDedicated account management";
 $cardItems = array_filter(array_map('trim', preg_split('/\\r?\\n/', $cardListRaw)));
 ?>
+<!-- layout=itfixintro.php layout_url=<?php echo cms_h((string) ($contentItem['layout_url'] ?? '')); ?> content_id=<?php echo cms_h((string) ($contentItem['id'] ?? '')); ?> -->
 
 <section id="intro" class="hero-section cms-content-block <?php echo cms_h($contentPaddingClass); ?>">
   <div class="container">
